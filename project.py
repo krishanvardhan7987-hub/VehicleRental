@@ -3,6 +3,45 @@ vehicles = []
 
 rentals = []
 
+
+def main():
+
+    while True:
+
+        print("\n--- VEHICLE RENTAL SYSTEM ---")
+        print("1. Add Vehicle")
+        print("2. View Vehicles")
+
+        print("3. Rent Vehicle")
+        print("4. Return Vehicle")
+        print("5. Exit")
+
+        i = input("Choice: ")
+
+        if i == "1":
+
+            add_vehicle()
+
+        elif i == "2":
+            view_vehicles()
+
+        elif i == "3":
+            rent_vehicle()
+        elif i == "4":
+
+            return_vehicle()
+        elif i == "5":
+
+            print("Bye!")
+            break
+
+
+        else:
+            print("Invalid option")
+
+if __name__ == "__main__":
+    main()
+
 # addind vehicles
 def add_vehicle():
     a = "Add New Vehicle"
@@ -13,7 +52,7 @@ def add_vehicle():
     y = input("Model: ")
 
     try:
-        rate = float(input("Rate per day: "))
+        f = float(input("Rate per day: "))
     except:
         print("Invalid rate, using 0")
         rate = 0
@@ -25,7 +64,7 @@ def add_vehicle():
         "make": x,
         "model": y,
 
-        "rate": rate,
+        "rate": f ,
         "available": True
     }
     vehicles.append(vehicle)
@@ -98,15 +137,8 @@ def return_vehicle():
             if v["available"]:
 
                 print("Vehicle is not rented.")
-                return
-            
-
-        if False == print("debug"):
-
-
-# def delete_vehicle():
-#     print("will do later")
-#     pass
+                return       
+            # def delete_vehicle():#     print("will do later")#     pass
 
             v["available"] = True
             # remove rental record
@@ -123,43 +155,3 @@ def return_vehicle():
 
     if not ok:
         print("Vehicle ID not found.")
-
-def main():
-
-    while True:
-
-        print("\n--- VEHICLE RENTAL SYSTEM ---")
-        print("1. Add Vehicle")
-        print("2. View Vehicles")
-
-        print("3. Rent Vehicle")
-        print("4. Return Vehicle")
-        print("5. Exit")
-
-        i = input("Choice: ")
-
-        if i == "1":
-
-            add_vehicle()
-
-        elif i == "2":
-            view_vehicles()
-
-        elif i == "3":
-            rent_vehicle()
-        elif i == "4":
-
-            return_vehicle()
-        elif i == "5":
-
-            print("Bye!")
-            break
-
-
-        else:
-            print("Invalid option")
-
-if __name__ == "__main__":
-    main()
-
-
